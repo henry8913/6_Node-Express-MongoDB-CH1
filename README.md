@@ -11,16 +11,6 @@ Un'applicazione web moderna per la gestione di un blog, realizzata con React per
 
 Questo blog full-stack offre una piattaforma completa per la pubblicazione e gestione di contenuti, con un'interfaccia utente reattiva e un backend robusto.
 
-### ✨ Caratteristiche Principali
-
-- Sistema di gestione articoli completo
-- Editor di testo ricco con Draft.js
-- Sistema di like per gli articoli
-- Gestione autori e avatar
-- Interfaccia responsive per dispositivi mobili
-- API RESTful
-- Integrazione MongoDB
-
 ## 🔄 Gestione del Monorepo
 
 Il progetto utilizza una struttura monorepo con due script bash per semplificare la gestione:
@@ -117,6 +107,41 @@ npm start
 - `POST /posts` - Crea un nuovo post
 - `PUT /posts/:id` - Aggiorna un post
 - `DELETE /posts/:id` - Elimina un post
+- `GET /posts?title=:title` - Ricerca post per titolo
+- `GET /authors/:authorName/posts` - Recupera i post di uno specifico autore
+
+### ✨ Caratteristiche Principali
+
+#### 📝 Sistema di Gestione Articoli
+- Visualizzazione di tutti i post nella homepage
+- Creazione di nuovi post con editor di testo ricco
+- Modifica e eliminazione dei post esistenti
+- Sistema di categorizzazione degli articoli
+
+#### 🔍 Sistema di Ricerca Avanzato
+- Ricerca dei post per titolo
+- Filtro dei post per autore
+- Risultati in tempo reale
+- Interfaccia di ricerca intuitiva
+
+#### 👥 Sistema Autori
+- Profili autore personalizzati
+- Avatar personalizzabili
+- Visualizzazione di tutti i post di uno specifico autore
+- Lista completa degli autori
+
+#### 📱 Design e UX
+- Interfaccia completamente responsive
+- Design moderno e pulito
+- Navigazione intuitiva
+- Caricamento dinamico dei contenuti
+
+#### 🛠 Funzionalità Tecniche
+- API RESTful complete
+- Integrazione MongoDB
+- Sistema di like per gli articoli
+- Gestione degli errori robusta
+- Validazione dei dati
 
 ## 🤝 Contribuire
 
