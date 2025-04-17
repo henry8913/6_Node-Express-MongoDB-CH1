@@ -3,6 +3,8 @@
 
 Un'applicazione web moderna per la gestione di un blog, realizzata con React per il frontend e Node.js/Express per il backend.
 
+**Puoi vedere il sito live [Qui](https://6-node-express-mongo-db-ch-1-front-end.vercel.app/) 🌐**.
+
 ![Cover del progetto](img/cover.jpg)
 
 ## 📋 Descrizione
