@@ -1,44 +1,91 @@
-# Blog Backend
 
-Backend Node.js/Express per la gestione di un blog con MongoDB.
+# Blog Full-Stack
+
+Un'applicazione web moderna per la gestione di un blog, realizzata con React per il frontend e Node.js/Express per il backend.
+
+**Puoi vedere il sito live [Qui](https://6-node-express-mongo-db-ch-1-front-end.vercel.app/) 🌐**.
 
 ![Cover del progetto](img/cover.jpg)
 
-## 🚀 Caratteristiche
+## 📋 Descrizione
 
-- API RESTful
-- Sistema di autenticazione
-  - Autenticazione locale con bcrypt e JWT
-  - OAuth 2.0 con Google
-  - Gestione token JWT
-  - Middleware di protezione route
-- Integrazione MongoDB
-- Upload immagini con Cloudinary
-- Sistema di notifiche email
-- CORS abilitato
-- Gestione degli errori
-- Schema validazione dati
+Questo blog full-stack offre una piattaforma completa per la pubblicazione e gestione di contenuti, con un'interfaccia utente reattiva e un backend robusto. Include un sistema di autenticazione sicuro per proteggere le funzionalità di pubblicazione e commento.
 
-## 🛠 Tecnologie
+### ✨ Nuove Funzionalità
+- Sistema di autenticazione con JWT e bcrypt
+- Autenticazione OAuth 2.0 con Google
+- Login e registrazione utenti (locale e Google)
+- Protezione delle route sensibili
+- Sistema di upload immagini con Cloudinary
+- Editor di testo ricco con Draft.js
+- Sistema di notifiche email per nuovi post
+- Gestione avatar autori
+- Sistema di categorizzazione avanzato
 
+## 🔄 Gestione del Monorepo
+
+Il progetto utilizza una struttura monorepo con due script bash per semplificare la gestione:
+
+### setup_monorepo.sh
+Script per l'inizializzazione del monorepo che:
+- Configura le repository remote per frontend e backend
+- Importa il codice utilizzando git subtree
+- Mantiene la cronologia dei commit
+
+### push_subtrees.sh
+Script per la sincronizzazione che:
+- Aggiorna le repository individuali di frontend e backend
+- Gestisce il push delle modifiche attraverso git subtree
+- Mantiene sincronizzati tutti i repository
+
+Per utilizzare gli script:
+```bash
+# Rendi gli script eseguibili
+chmod +x setup_monorepo.sh
+chmod +x push_subtrees.sh
+
+# Setup iniziale
+./setup_monorepo.sh
+
+# Push delle modifiche
+./push_subtrees.sh
+```
+
+## 🛠 Stack Tecnologico
+
+### Frontend
+- React 18
+- React Bootstrap per UI components
+- React Router DOM per la navigazione
+- Draft.js per l'editor di testo
+- React Icons
+
+### Backend
 - Node.js
 - Express
 - MongoDB con Mongoose
 - Cloudinary per gestione immagini
-- SendGrid per invio email
-- CORS
-- Dotenv
+- Sistema email con SendGrid
+- CORS per la sicurezza
+- Dotenv per la gestione delle variabili d'ambiente
 
-## 📦 Installazione
+## 🚀 Installazione e Avvio
 
+### Prerequisiti
+- Node.js
+- MongoDB Atlas account
+- Account Cloudinary
+- Account SendGrid (per email)
+
+### Configurazione
+
+1. **Backend**:
 ```bash
+cd Back-end
 npm install
 ```
 
-## ⚙️ Configurazione
-
-Crea un file `.env` nella root del progetto:
-
+Crea un file `.env` con:
 ```
 MONGODB_URL=il_tuo_url_mongodb
 CLOUDINARY_CLOUD_NAME=your_cloud_name
@@ -48,13 +95,30 @@ SENDGRID_API_KEY=your_sendgrid_api_key
 ADMIN_EMAIL=your_admin_email
 ```
 
-## 🚀 Avvio
-
+2. **Frontend**:
 ```bash
+cd Front-end
+npm install
+```
+
+Crea un file `.env` con:
+```
+REACT_APP_API_URL=http://0.0.0.0:8913
+```
+
+### Avvio dell'applicazione
+
+1. **Backend**:
+```bash
+cd Back-end
 npm run dev
 ```
 
-Il server sarà in ascolto sulla porta 8913
+2. **Frontend**:
+```bash
+cd Front-end
+npm start
+```
 
 ## 📝 API Endpoints
 
@@ -63,69 +127,55 @@ Il server sarà in ascolto sulla porta 8913
 - `POST /posts` - Crea un nuovo post
 - `PUT /posts/:id` - Aggiorna un post
 - `DELETE /posts/:id` - Elimina un post
+- `GET /posts?title=:title` - Ricerca post per titolo
+- `GET /authors/:authorName/posts` - Recupera i post di uno specifico autore
 - `POST /posts/cover` - Upload immagine di copertina
 - `POST /authors/avatar` - Upload avatar autore
-- `GET /posts/:id/comments` - Recupera tutti i commenti di un post
-- `POST /posts/:id/comments` - Aggiunge un nuovo commento a un post
-- `PUT /posts/:id/comments/:commentId` - Modifica un commento
-- `DELETE /posts/:id/comments/:commentId` - Elimina un commento
 
-### Struttura JSON per POST /posts
+### ✨ Caratteristiche Principali
 
-```json
-{
-  "_id": Number,
-  "category": String,
-  "title": String,
-  "cover": String,
-  "readTime": {
-    "value": Number,
-    "unit": String
-  },
-  "author": {
-    "name": String,
-    "avatar": String
-  },
-  "content": String,
-  "createdAt": String,
-  "comments": [
-    {
-      "_id": Number,
-      "text": String,
-      "author": String,
-      "createdAt": String
-    }
-  ]
-}
-```
+#### 📝 Sistema di Gestione Articoli
+- Visualizzazione di tutti i post nella homepage
+- Creazione di nuovi post con editor di testo ricco
+- Upload immagini integrate
+- Modifica e eliminazione dei post esistenti
+- Sistema di categorizzazione degli articoli
 
-Esempio:
-```json
-{
-  "_id": 16,
-  "category": "Frontend",
-  "title": "Il mio nuovo post",
-  "cover": "https://example.com/image.jpg",
-  "readTime": {
-    "value": 5,
-    "unit": "minute"
-  },
-  "author": {
-    "name": "Mario Rossi",
-    "avatar": "https://example.com/avatar.jpg"
-  },
-  "content": "<div class='py-5 blog-content'><p>Il contenuto del post...</p></div>",
-  "createdAt": "30 Apr 2024",
-  "comments": [
-    {
-      "_id": 1,
-      "text": "Ottimo articolo!",
-      "author": "Luigi Bianchi",
-      "createdAt": "1 May 2024"
-    }
-  ]
-}
-```
+#### 🔍 Sistema di Ricerca Avanzato
+- Ricerca dei post per titolo
+- Filtro dei post per autore
+- Risultati in tempo reale
+- Interfaccia di ricerca intuitiva
+
+#### 👥 Sistema Autori
+- Profili autore personalizzati
+- Avatar personalizzabili
+- Visualizzazione di tutti i post di uno specifico autore
+- Lista completa degli autori
+
+#### 📱 Design e UX
+- Interfaccia completamente responsive
+- Design moderno e pulito
+- Navigazione intuitiva
+- Caricamento dinamico dei contenuti
+
+#### 🛠 Funzionalità Tecniche
+- API RESTful complete
+- Integrazione MongoDB
+- Upload immagini con Cloudinary
+- Notifiche email automatiche
+- Sistema di like per gli articoli
+- Sistema di commenti per i post
+- Gestione degli errori robusta
+- Validazione dei dati
+
+## 🤝 Contribuire
+
+Le contribuzioni sono benvenute! Sentiti libero di:
+
+- Forkare il repository
+- Creare un branch per le tue modifiche
+- Inviare una pull request
 
 ## 👤 Autore
 Progetto creato da [Henry](https://github.com/henry8913) per scopi didattici.
