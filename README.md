@@ -11,11 +11,7 @@ Un'applicazione web moderna per la gestione di un blog, realizzata con React per
 
 Questo blog full-stack offre una piattaforma completa per la pubblicazione e gestione di contenuti, con un'interfaccia utente reattiva e un backend robusto. Include un sistema di autenticazione sicuro per proteggere le funzionalità di pubblicazione e commento.
 
-Per maggiori dettagli, puoi visitare i repository individuali:
-- [Repository Frontend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Front-end)
-- [Repository Backend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Back-end)
-
-### ✨ Nuove Funzionalità
+### ✨ Funzionalità
 - Sistema di autenticazione con JWT e bcrypt
 - Autenticazione OAuth 2.0 con Google
 - Login e registrazione utenti (locale e Google)
@@ -191,6 +187,10 @@ npm start
 - Sistema di commenti per i post
 - Gestione degli errori robusta
 - Validazione dei dati
+
+Per maggiori dettagli, puoi visitare i repository individuali:
+- [Repository Frontend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Front-end)
+- [Repository Backend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Back-end)
 
 ## 🤝 Contribuire
 
