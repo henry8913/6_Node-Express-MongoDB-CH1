@@ -11,6 +11,10 @@ Un'applicazione web moderna per la gestione di un blog, realizzata con React per
 
 Questo blog full-stack offre una piattaforma completa per la pubblicazione e gestione di contenuti, con un'interfaccia utente reattiva e un backend robusto. Include un sistema di autenticazione sicuro per proteggere le funzionalità di pubblicazione e commento.
 
+Per maggiori dettagli, puoi visitare i repository individuali:
+- [Repository Frontend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Front-end)
+- [Repository Backend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Back-end)
+
 ### ✨ Nuove Funzionalità
 - Sistema di autenticazione con JWT e bcrypt
 - Autenticazione OAuth 2.0 con Google
@@ -21,6 +25,9 @@ Questo blog full-stack offre una piattaforma completa per la pubblicazione e ges
 - Sistema di notifiche email per nuovi post
 - Gestione avatar autori
 - Sistema di categorizzazione avanzato
+- Sistema di commenti interattivo con gestione CRUD
+- Gestione personalizzata dei post (modifica/eliminazione) per gli autori
+- Controllo di autorizzazione per operazioni sui post e commenti
 
 ## 🔄 Gestione del Monorepo
 
@@ -87,12 +94,23 @@ npm install
 
 Crea un file `.env` con:
 ```
-MONGODB_URL=il_tuo_url_mongodb
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-SENDGRID_API_KEY=your_sendgrid_api_key
-ADMIN_EMAIL=your_admin_email
+MONGODB_URL= # URL di connessione al database MongoDB
+appName= # Nome dell'applicazione
+PORT= # Porta su cui il server sarà in ascolto
+FRONTEND_URL= #http://0.0.0.0:3000
+BACKEND_URL= #http://0.0.0.0:8913
+
+CLOUDINARY_CLOUD_NAME= # Nome del cloud su Cloudinary
+CLOUDINARY_API_KEY= # Chiave API di Cloudinary
+CLOUDINARY_API_SECRET= # Segreto API di Cloudinary
+
+SENDGRID_API_KEY= # Chiave API di SendGrid per l'invio di email
+ADMIN_EMAIL= # Email dell'amministratore
+JWT_SECRET= # Chiave segreta per la generazione dei token JWT
+SALT_ROUNDS= # Numero di round per la generazione dell'hash della password
+
+GOOGLE_CLIENT_ID= # ID del client Google per OAuth 2.0
+GOOGLE_CLIENT_SECRET= # Segreto del client Google per OAuth 2.0
 ```
 
 2. **Frontend**:
@@ -103,7 +121,12 @@ npm install
 
 Crea un file `.env` con:
 ```
-REACT_APP_API_URL=http://0.0.0.0:8913
+REACT_APP_API_URL= # URL del backend server
+SENDGRID_API_KEY= # Chiave API di SendGrid
+ADMIN_EMAIL= # Email per notifiche dei nuovi post
+FRONTEND_URL= # URL del frontend
+GOOGLE_CLIENT_ID= # ID del client Google per OAuth 2.0
+GOOGLE_CLIENT_SECRET= # Segreto del client Google per OAuth 2.0
 ```
 
 ### Avvio dell'applicazione
