@@ -5,10 +5,6 @@ Un'applicazione web moderna per la gestione di un blog, realizzata con React per
 
 **Puoi vedere il sito live [Qui](https://6-node-express-mongo-db-ch-1-front-end.vercel.app/) 🌐**.
 
-Per maggiori dettagli, puoi visitare le repository individuali:
-- [Repository Frontend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Front-end)
-- [Repository Backend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Back-end)
-
 ![Cover del progetto](img/cover.jpg)
 
 ## 📋 Descrizione
@@ -191,6 +187,10 @@ npm start
 - Sistema di commenti per i post
 - Gestione degli errori robusta
 - Validazione dei dati
+
+Per maggiori dettagli, puoi visitare le repository individuali:
+- [Repository Frontend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Front-end)
+- [Repository Backend](https://github.com/henry8913/6_Node-Express-MongoDB-CH1_Back-end)
 
 ## 🤝 Contribuire
 
